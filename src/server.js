@@ -93,11 +93,11 @@ function makeCall(request, response) {
   var callerNumber = null;
 
   if (request.method == 'POST') {
-    to = request.body.to;
-    callerNumber = request.body.callerId;
+    to = request.body.To;
+    callerNumber = request.body.From;
   } else {
-    to = request.query.to;
-    callerNumber = request.query.callerId;
+    to = request.query.To;
+    callerNumber = request.query.From;
   }
 
   console.log("To : ", to);
