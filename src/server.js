@@ -31,7 +31,7 @@ function tokenGenerator(request, response) {
   else {
     identity = request.query.identity;
      pushid = request.query.pushid;
-     console.log('pushid:' + twilioAccountSid);
+     console.log('pushid:' + pushid);
   }
 
   if (!identity) {
