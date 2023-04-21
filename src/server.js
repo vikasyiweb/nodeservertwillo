@@ -23,10 +23,15 @@ const callerNumber = '+919998947040';
 function tokenGenerator(request, response) {
   // Parse the identity from the http request
   var identity = null;
+  var pushid = null;
   if (request.method == 'POST') {
     identity = request.body.identity;
-  } else {
+     pushid = request.body.pushid;
+  }
+  else {
     identity = request.query.identity;
+     pushid = request.query.pushid;
+     console.log('pushid:' + twilioAccountSid);
   }
 
   if (!identity) {
@@ -39,7 +44,7 @@ function tokenGenerator(request, response) {
   const twilioApiSecret = process.env.TWILLIO_API_KEY_SECRET;
 
   // Used specifically for creating Voice tokens
-  const pushCredSid = process.env.PUSH_CREDENTIAL_SID;
+  const pushCredSid = pushid;
   const outgoingApplicationSid = process.env.TWILLIO_TWIML_APP_SID;
 
   console.log('Keys : ' + twilioAccountSid);
